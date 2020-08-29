@@ -34,11 +34,10 @@ export default {
         }
     });
     if (sessionStorage.redirect) {
-      const redirect = sessionStorage.redirect
-      delete sessionStorage.redirect
-      this.$router.push(redirect)
+      const redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      this.$router.push(redirect);
     }
-  }
   },
   data() {
     return {
