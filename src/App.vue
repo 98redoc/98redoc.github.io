@@ -33,6 +33,12 @@ export default {
             this.sidebar.collapsed = false
         }
     });
+    if (sessionStorage.redirect) {
+      const redirect = sessionStorage.redirect
+      delete sessionStorage.redirect
+      this.$router.push(redirect)
+    }
+  }
   },
   data() {
     return {
