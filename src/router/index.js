@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Blog from '../views/Blog.vue'
 
 Vue.use(VueRouter)
 
@@ -11,8 +11,8 @@ Vue.use(VueRouter)
   },
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Blog',
+    component: Blog
   },
   {
     path: '/about',
@@ -31,3 +31,4 @@ const router = new VueRouter({
 })
 
 export default router
+  
