@@ -6,21 +6,18 @@
       in my journey of exploring the mystery world of computer science 
       and deep learning.
     </p>
-    <div class="blog-card-grid">
-      <blog-card :title="'Deep Learning with Numpy?'" :url="'https://google.com'"/>
-      <blog-card/>
-      <blog-card/>
-      <blog-card/>
-      <blog-card/>
-      <blog-card/>
-    </div>  
-    <button v-if="isMore" type="submit" class="btn btn--red btn--go" @click.prevent="loadMore">LOAD MORE</button>
+    <div v-if="blogs" class="blog-card-grid">
+      <blog-card v-for="blog in blogs.slice(0, page*6)" :title="blog.title" :key="blog.id" :url="blog._links.self"/>
+    </div>
+    <button v-if="blogs && page*6 < blogs.length" type="submit" class="btn btn--red btn--go" @click.prevent="loadMore">LOAD MORE</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import BlogCard from '@/components/BlogCard.vue'
+import config from '../config.js'
+import axios from 'axios'
 export default {
   name: 'Blog',
   components: {
@@ -29,8 +26,23 @@ export default {
   data () {
     return {
       isMore: true,
+      blogs: null,
+      page: 1
     } 
   },
+  created() {
+    this.getBlogs()
+  },
+  methods: {
+    getBlogs() {
+      axios.get(config.APP_URL+'api/blogs').then( resp => {
+        this.blogs = resp.data.blogs
+      })
+    },
+    loadMore() {
+      this.page = this.page + 1
+    }
+  }
 }
 </script>
 

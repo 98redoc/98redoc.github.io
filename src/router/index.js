@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Blog from '../views/Blog.vue'
 import Login from '../views/Login.vue'
+import BlogWriter from '../views/BlogWriter.vue'
+import Logout from '../views/Logout.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +29,16 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
+  },
+  {
+    path: '/writer',
+    name: 'BlogWriter',
+    component: BlogWriter
   }
 ]
 

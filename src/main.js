@@ -9,7 +9,6 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    count: 0,
     atLoginPage: false,
     user: null,
     navbarOptions: {
@@ -74,11 +73,23 @@ const store = new Vuex.Store({
             text: "Write Blog",
             path: { name: "BlogWriter" },
           },
+          {
+            type: "hr"
+          },
+          {
+            type: "link",
+            text: "Logout",
+            path: { name: "Logout"}
+          }
         ]
       }])
     },
     updateUser(state, user) {
       state.user = user
+    },
+    clearState() {
+      this.state.user = null
+      this.commit('leaveLoginPage')
     }
   }
 })
@@ -96,5 +107,13 @@ import 'font-awesome/css/font-awesome.css'
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  watch: { // Ref: https://dev.to/webhookrelay/a-simple-way-to-keep-your-vue-page-title-in-sync-with-the-router-ec0
+    '$route':{
+      handler: (to) => {
+        document.title = to.meta.title || "98redoC's Blogs"
+      },
+        immediate: true
+    }
+  },
 }).$mount('#app')
