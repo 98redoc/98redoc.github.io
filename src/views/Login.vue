@@ -60,10 +60,10 @@ export default {
                     this.$store.commit('updateUser', resp.data)
                     this.$store.commit('loggedIn')
                     // console.log(this.$store.state.user)
+                    this.status.logginIn = false
+                    this.$router.push({ name: 'Blog' })
                 })
                 .catch(error => {this.message = error.response.data.error})
-            this.status.logginIn = false
-            this.$router.push({ name: 'Blog' })
         }
     }
 }
