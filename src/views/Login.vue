@@ -64,6 +64,7 @@ export default {
                     this.$router.push({ name: 'Blog' })
                 })
                 .catch(error => {this.message = error.response.data.error})
+            this.status.logginIn = false
         }
     }
 }
