@@ -6,7 +6,7 @@
 export default {
     created() {
         console.log("Logout")
-        this.$store.commit('clearState')
+        this.$store.commit('updateUser', null)
         this.$router.push({ name: 'Blog' })
   },
 }

@@ -38,12 +38,6 @@ export default {
             }
         }
     },
-    // updated() {
-    //     console.log(this.$route)
-    // },
-    mounted() {
-        this.$store.commit('visitLoginPage')
-    },
     components: {
         VueElementLoading
     },
@@ -52,13 +46,12 @@ export default {
             this.status.logginIn = true
             this.message = ''
             let formData = new FormData()
-            console.log(this.navbarOptions)
             formData.append('username', this.username)
             formData.append('password', this.password)
             axios.post(config.APP_URL+'api/login', formData)
                 .then(resp => {
                     this.$store.commit('updateUser', resp.data)
-                    this.$store.commit('loggedIn')
+                    // this.$store.commit('loggedIn')
                     // console.log(this.$store.state.user)
                     this.status.logginIn = false
                     this.$router.push({ name: 'Blog' })

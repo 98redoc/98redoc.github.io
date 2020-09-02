@@ -4,14 +4,17 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <vue-navigation-bar :options="this.$store.state.navbarOptions"/>
+    <!-- <vue-navigation-bar :options="this.$store.state.navbarOptions"/> -->
+    <nav-bar/>
     <router-view class="main"/>
   </div>
 </template>
 
 <script>
+import NavBar from '@/components/NavBar.vue'
 export default {
   components: {
+    NavBar
   },
   methods: {
     disableLoginButton() {
@@ -20,14 +23,6 @@ export default {
     }
   },
   watch: {
-    $route (to, from){
-      if (to.name == "Login") {
-        this.$store.commit('visitLoginPage')
-      }
-      if (from.name=="Login") {
-        this.$store.commit('leaveLoginPage')
-      }
-    }
   },
 }
 </script>
