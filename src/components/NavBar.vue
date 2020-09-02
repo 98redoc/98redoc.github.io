@@ -24,7 +24,7 @@ export default {
                 ariaLabelMainNav: "Main Navigation",
                 tooltipAnimationType: "shift-away",
                 menuOptionsLeft: [
-                    { type: "link", text: "TENSOR BLOG", path: { name: "Blog"} },
+                    { type: "link", text: "TENSOR BLOG", path: { name: "Home"} },
                     { type: "link", text: "ABOUT ME", path: { name: "About"} },
                 ],
                 menuOptionsRight: [

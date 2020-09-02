@@ -68,7 +68,7 @@ export default {
                 })
                 .catch(error => console.log(error.response.data.error))
             this.status.isPublishing = false
-            this.$router.push({ name: 'Blog' })
+            this.$router.push({ name: 'Home' })
         }
     },
     components: {

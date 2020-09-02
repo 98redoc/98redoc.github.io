@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 import Blog from '../views/Blog.vue'
 import Login from '../views/Login.vue'
 import BlogWriter from '../views/BlogWriter.vue'
@@ -14,6 +15,11 @@ Vue.use(VueRouter)
   },
   {
     path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/blog/:id',
     name: 'Blog',
     component: Blog
   },

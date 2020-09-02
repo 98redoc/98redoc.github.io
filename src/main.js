@@ -5,14 +5,6 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-// import VueSidebarMenu from 'vue-sidebar-menu'
-// import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
-// Vue.use(VueSidebarMenu)
-
-// import VueNavigationBar from "vue-navigation-bar"
-// import "vue-navigation-bar/dist/vue-navigation-bar.css"
-// Vue.component("vue-navigation-bar", VueNavigationBar)
-
 new Vue({
   router,
   store,

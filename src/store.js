@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import createPersistedState from "vuex-persistedstate"
 
 Vue.use(Vuex)
 
-
 export default new Vuex.Store({
     state: {
-        user: null
+        user: null,
+        blogs: []
     },
     getters: {
         user: state => state.user,
+        blogs: state => state.blogs,
         jwtToken (state) {
             if (state.user) {
                 try {
@@ -48,5 +49,9 @@ export default new Vuex.Store({
         updateUser(state, user) {
             state.user = user
         },
+        updateBlogs(state, blogs) {
+            state.blogs = blogs
+        }
     },
+    plugins: [createPersistedState()],
 })
